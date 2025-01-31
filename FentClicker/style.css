@@ -1,0 +1,8 @@
+#fentAdded
+{
+    background-color: red;
+    position: absolute;
+    opacity: 0;
+    font-size: 100px;
+    transition: opacity 1s;
+}
