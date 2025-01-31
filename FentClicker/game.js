@@ -11,11 +11,7 @@ FentClick.addEventListener("click", function() {
 });
 
 fentNeedleBuy.addEventListener("click", function() {
-    if(Fent >= 50)
-        {
-            Fent -= 50;
-            linearIncr++;
-        }
+    FentNeedle.buy();
 });
 
 function increaseFent(mult)
@@ -27,4 +23,24 @@ function increaseFent(mult)
     FentAdded.style.top = (event.clientY + 15) + "px";
     setTimeout(() => {FentAdded.style.opacity = "0";}, 500)
     currentFent.innerHTML = "FentStash: " + Fent + "g";
+}
+
+class FentNeedle
+{
+    constructor()
+    {
+        this.price = 50;
+        this.priceIncr = 2;
+    }
+
+    static buy()
+    {
+        if(Fent >= 50)
+        {
+            Fent -= 50;
+            linearIncr++;
+            this.price = this.price + this.priceIncr;
+            this.priceIncr *= 2;
+        } 
+    }
 }
