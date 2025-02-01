@@ -20,5 +20,5 @@ fentClickButton.addEventListener("click", () => {
     }
 });
 
-geht nu nd zählt immer mit 1 egal ob upgrade
+geht nu nd zählt immer mit 1 egal ob upgraded
 */
