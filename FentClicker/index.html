@@ -5,28 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FENT CLICKER</title>
-    <link rel="stylesheet" href="css/boilerplate_styles.css">
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <h1>Help a nigga get sum fent!</h1>
     <p>to generate Fent press on george droyd (fent reactor)</p>
     <h2 id="currentFent">FentStash: 0</h2>
-    <div id="fentAdded"></div>
-    <button id="fentClick"><img src="img/george-droyd.jpg" style="pointer-events: none;"></button>
-
-    <div class="sketchfab-embed-wrapper"> <iframe title="Fentanyl" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="600" height="500" src="https://sketchfab.com/models/987764a5990a4fcd8e533ce798c7d78d/embed?autostart=1&ui_hint=0"> </iframe> </div>
-    <h1>UPGRADES</h1>
-    
-
-    <button id="fentNeedleBuy"><h2><img src="img/fentNeedle.avif" style="width: 300px; height: 205px;">Fent-Needle</h2></button>
-    <p>Adds +1 to your clicks</p>
-    <p>Price: 50 Fent</p>
-
+   
+    <div class="container">
+      <div class="row">
+        <div class=" 2 columns offset-by-six">
+          <h1>UPGRADES</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <div id="fentAdded"></div>
+          <button id="fentClick"><img src="img/george-droyd.jpg" style="pointer-events: none;"></button>
+      
+        </div>
+ 
+        <div class="four columns">
+          <button id="fentNeedleBuy"><h2><img src="img/fentNeedle.avif" style="width: 300px; height: 205px;">Fent-Needle</h2></button>
+          <p>Adds +1 to your clicks</p>
+          <p>Price: 50 Fent</p>
+        </div>
+  
+        <div class="four columns">
+          
     <button id="fentPipeBuy"><h2><img src="img/fent_pipe.jpg" style="width: 300px; height: 205px;">Fent-Pipe</h2></button>
     <p>*2 to your clicks</p>
     <p>Price: 200 Fent</p>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class=" three column">
+    <div class="sketchfab-embed-wrapper"> <iframe title="Fentanyl" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="600" height="500" src="https://sketchfab.com/models/987764a5990a4fcd8e533ce798c7d78d/embed?autostart=1&ui_hint=0"> </iframe> </div>
+        </div>
+      </div>
+
+    </div>
+  
+
     <script src="js/app.js"></script>
+    
   </body>
 </html>
