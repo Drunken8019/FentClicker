@@ -2,45 +2,82 @@ var FentClick = document.getElementById("fentClick");
 var FentAdded = document.getElementById("fentAdded");
 var currentFent = document.getElementById("currentFent");
 var fentNeedleBuy = document.getElementById("fentNeedleBuy");
+var fentPipeBuy = document.getElementById("fentPipeBuy");
 
-var Fent = 0;
 var linearIncr = 0;
-
-FentClick.addEventListener("click", function() {
-    increaseFent(linearIncr);
-});
-
-fentNeedleBuy.addEventListener("click", function() {
-    FentNeedle.buy();
-});
-
-function increaseFent(mult)
-{
-    Fent += 1 + mult;
-    FentAdded.innerHTML = 1 + mult;
-    FentAdded.style.opacity = "100%";
-    FentAdded.style.left = (event.clientX + 5) + "px";
-    FentAdded.style.top = (event.clientY + 15) + "px";
-    setTimeout(() => {FentAdded.style.opacity = "0";}, 500)
-    currentFent.innerHTML = "FentStash: " + Fent + "g";
-}
+var expIncr = 1;
+var Fent = 0;
 
 class FentNeedle
 {
     constructor()
     {
         this.price = 50;
-        this.priceIncr = 2;
+
     }
 
     static buy()
     {
-        if(Fent >= 50)
+        if(Fent >= this.price)
         {
-            Fent -= 50;
+            Fent -= this.price;
             linearIncr++;
-            this.price = this.price + this.priceIncr;
-            this.priceIncr *= 2;
-        } 
+        }
+        update(); 
     }
+}
+
+class FentPipe
+{
+    constructor()
+    {
+        this.price = 200;
+    }
+
+    static buy()
+    {
+        if(Fent >= this.price)
+        {
+            Fent -= this.price;
+            expIncr *= 2;
+        }
+        update(); 
+    }
+}
+
+class GameHandler
+{
+    static increaseFent(mult)
+    {
+        Fent += linearIncr + expIncr;
+        this.displayPopUp(linearIncr + expIncr);
+        update();
+    }
+
+    static displayPopUp(content)
+    {
+        FentAdded.innerHTML = content;
+        FentAdded.style.opacity = "100%";
+        FentAdded.style.left = (event.clientX + 5) + "px";
+        FentAdded.style.top = (event.clientY + 15) + "px";
+        setTimeout(() => {FentAdded.style.opacity = "0";}, 500)
+    }
+}
+
+FentClick.addEventListener("click", function() {
+    GameHandler.increaseFent(linearIncr);
+});
+
+fentNeedleBuy.addEventListener("click", function() {
+    FentNeedle.buy();
+});
+
+fentPipeBuy.addEventListener("click", function() {
+    FentPipe.buy();
+});
+
+
+function update()
+{
+    currentFent.innerHTML = "FentStash: " + Fent + "g";
 }
