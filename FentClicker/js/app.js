@@ -6,21 +6,16 @@ var fentPipeBuy = document.getElementById("fentPipeBuy");
 
 var linearIncr = 0;
 var expIncr = 1;
-var Fent = 0;
+var Fent = 50;
 
 class FentNeedle
 {
-    constructor()
-    {
-        this.price = 50;
-
-    }
-
     static buy()
     {
-        if(Fent >= this.price)
+        var price = 50;
+        if(Fent >= price)
         {
-            Fent -= this.price;
+            Fent -= price;
             linearIncr++;
         }
         update(); 
@@ -29,16 +24,12 @@ class FentNeedle
 
 class FentPipe
 {
-    constructor()
-    {
-        this.price = 200;
-    }
-
     static buy()
     {
-        if(Fent >= this.price)
+        var price = 200;
+        if(Fent >= price)
         {
-            Fent -= this.price;
+            Fent -= price;
             expIncr *= 2;
         }
         update(); 
