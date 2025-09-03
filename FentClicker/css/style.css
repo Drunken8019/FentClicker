@@ -11,3 +11,18 @@
 p{
     font-size: 20px;
 }
+
+.hidden
+{
+    display: none;
+}
+
+.market
+{
+    background-color: lightblue;
+    padding: 20px;
+    border-radius: 10%;
+    position: fixed;
+    left: 70%;
+    bottom: 50%;
+}

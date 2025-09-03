@@ -12,7 +12,18 @@
     <h1>Help a nigga get sum fent!</h1>
     <p>to generate Fent press on george droyd (fent reactor)</p>
     <h2 id="currentFent">FentStash: 0</h2>
+    <h4 id="fentPerClick">Fent per click: 1</h4>
+    <h4 id="autoFarm">Fent per Second: 0</h4>
+    <h4>Boosts:</h4>
+    <div id="boostContainer"></div>
    
+    <div id="dealer" class="market hidden">
+      <h3>Dealer</h3>
+      <button id="crackBuy" style="width: 100%;"><img src="img/crack.jpg" style="width: 100px; height: 100px;"><h5>Buy Crack</h5></button>
+      <p>Price: 90000 Fent</p>
+      <p>Crack gives you a x10 Boost to you're Clicks for 5mins</p>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class=" 2 columns offset-by-six">
@@ -27,23 +38,35 @@
         </div>
  
         <div class="four columns">
-          <button id="fentNeedleBuy"><h2><img src="img/fentNeedle.avif" style="width: 300px; height: 205px;">Fent-Needle</h2></button>
+          <button id="fentNeedleBuy"><img src="img/fentNeedle.avif" style="width: 300px; height: 205px;"><h2>Fent-Needle</h2></button>
           <p>Adds +1 to your clicks</p>
-          <p>Price: 50 Fent</p>
+          <p id="fentNeedleBuyPrice">Price: 50 Fent</p>
         </div>
   
         <div class="four columns">
-          
-    <button id="fentPipeBuy"><h2><img src="img/fent_pipe.jpg" style="width: 300px; height: 205px;">Fent-Pipe</h2></button>
-    <p>*2 to your clicks</p>
-    <p>Price: 200 Fent</p>
+          <button id="fentPipeBuy"><img src="img/fent_pipe.jpg" style="width: 300px; height: 205px;"><h2>Fent-Pipe</h2></button>
+          <p>*2 to your clicks</p>
+          <p id="fentPipeBuyPrice">Price: 200 Fent</p>
         </div>
       </div>
 
-      <br>
-      <h2 id="highscore">Highscore: 0</h2>
       <div class="row">
-        <div class=" three column">
+        <div class="four columns offset-by-four">
+          <button id="fentReactorBuy"><img src="img/fentReactor.png" style="width: 250px; height: 205px;"><h2>Fent-Reactor</h2></button>
+          <p>Automatically produces fent, at a rate of 100 Fent/s</p>
+          <p id="fentReactorBuyPrice">Price: 5000 Fent</p>
+        </div>
+        <div class="four columns">
+          <button id="jewishFloydBuy"><img src="img/jewish-floyd.jpg" style="width: 250px; height: 205px;"><h2>Jorge Floydstein</h2></button>
+          <p>*2 to your Fent per second</p>
+          <p id="jewishFloydBuyPrice">Price: 1000000 Fent</p>
+        </div>
+        <div class="four columns"><br></div>
+      </div>
+
+      <br>
+      <div class="row">
+        <div class=" three column offset-by-four">
     <div class="sketchfab-embed-wrapper"> <iframe title="Fentanyl" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="600" height="500" src="https://sketchfab.com/models/987764a5990a4fcd8e533ce798c7d78d/embed?autostart=1&ui_hint=0"> </iframe> </div>
         </div>
       </div>
