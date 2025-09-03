@@ -12,15 +12,6 @@ var countdown;
 var duration = 5 * 60;
 var blmBoostActive = false;
 
-class BlmFentBoost {
-    constructor() {
-
-}
-
-    buy() {
-        
-    }
-}
 
 class FentNeedle
 {
