@@ -8,8 +8,7 @@ var linearIncr = 0;
 var expIncr = 1;
 var Fent = 0;
 
-var fentNeedle = new FentNeedle;
-var fentPipe = new FentPipe;
+
 
 
 class FentNeedle
@@ -67,7 +66,8 @@ class GameHandler
         setTimeout(() => {FentAdded.style.opacity = "0";}, 500)
     }
 }
-
+var fentNeedle = new FentNeedle;
+var fentPipe = new FentPipe;
 FentClick.addEventListener("click", function() {
     GameHandler.increaseFent(linearIncr);
 });
