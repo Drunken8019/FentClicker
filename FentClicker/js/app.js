@@ -3,11 +3,13 @@ var FentAdded = document.getElementById("fentAdded");
 var currentFent = document.getElementById("currentFent");
 var fentNeedleBuy = document.getElementById("fentNeedleBuy");
 var fentPipeBuy = document.getElementById("fentPipeBuy");
+var fentBlmBoost = document.getElementById("blmBoost");
 
 var linearIncr = 0;
 var expIncr = 1;
 var Fent = 0;
-
+var countdown;
+var duration = 5 * 60;
 
 
 
@@ -18,7 +20,6 @@ class FentNeedle
         this.price = 50;
 
     }
-
     buy()
     {
         if(Fent >= this.price)
@@ -80,6 +81,28 @@ fentPipeBuy.addEventListener("click", function() {
     fentPipe.buy();
 });
 
+fentBlmBoost.addEventListener("click", () => {
+    startTimer();
+})
+
+function startTimer() {
+    clearInterval(countdown);
+    let timeLeft = duration;
+    countdown = setInterval( () => {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        document.getElementById("timer").textContent = `BLM FENT BOOST: ${minutes}:${seconds}`;
+        if(timeLeft <= 0) {
+            clearInterval(countdown);
+            document.getElementById("timer").textContent = "No more time"
+        }
+        timeLeft--;
+
+    }, 1000);
+}
 
 function update()
 {

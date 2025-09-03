@@ -11,3 +11,9 @@
 p{
     font-size: 20px;
 }
+
+#timer{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+}
