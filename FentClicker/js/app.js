@@ -8,6 +8,10 @@ var linearIncr = 0;
 var expIncr = 1;
 var Fent = 0;
 
+var fentNeedle = new FentNeedle;
+var fentPipe = new FentPipe;
+
+
 class FentNeedle
 {
     constructor()
@@ -16,7 +20,7 @@ class FentNeedle
 
     }
 
-    static buy()
+    buy()
     {
         if(Fent >= this.price)
         {
@@ -34,7 +38,7 @@ class FentPipe
         this.price = 200;
     }
 
-    static buy()
+    buy()
     {
         if(Fent >= this.price)
         {
@@ -69,11 +73,11 @@ FentClick.addEventListener("click", function() {
 });
 
 fentNeedleBuy.addEventListener("click", function() {
-    FentNeedle.buy();
+    fentNeedle.buy();
 });
 
 fentPipeBuy.addEventListener("click", function() {
-    FentPipe.buy();
+    fentPipe.buy();
 });
 
 
