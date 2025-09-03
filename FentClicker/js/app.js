@@ -9,7 +9,7 @@ var linearIncr = 0;
 var expIncr = 1;
 var Fent = 0;
 var countdown;
-var duration = 5 * 60;
+var duration = 3 * 60;
 var blmBoostActive = false;
 
 
