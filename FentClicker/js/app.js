@@ -18,12 +18,22 @@ var autoFarm = 0;
 var autoFarmMult = 1;
 var globalClickMult = 1;
 
+var fentBlmBoost = document.getElementById("blmBoost");
+
+var linearIncr = 0;
+var expIncr = 1;
+var Fent = 0;
+var countdown;
+var duration = 3 * 60;
+var blmBoostActive = false;
+
 class GameHandler
 {
     static setPrice(price, elem)
     {
         elem.innerHTML = "Price: " + price + " Fent";
     }
+
 
     static clickValue()
     {
@@ -57,7 +67,6 @@ class FentNeedle
     {
         this.price = 50;
     }
-
     buy()
     {
         if(Fent >= this.price)
@@ -93,6 +102,14 @@ class FentReactor
     constructor()
     {
         this.price = 5000;
+        let baseFent = linearIncr + expIncr;
+        let boost = blmBoostActive ? 2 : 1;
+
+        let total = baseFent * boost;
+
+        Fent += total;
+        this.displayPopUp("+" + total);
+        update();
     }
 
     buy()
@@ -168,6 +185,32 @@ crackBuy.addEventListener("click", function() {
         }, 1000 * 60 * 5);
     }
 });
+fentBlmBoost.addEventListener("click", () => {
+    startTimer();
+})
+function startTimer() {
+    clearInterval(countdown);
+    let timeLeft = duration;
+    blmBoostActive = true;
+
+    countdown = setInterval(() => {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        document.getElementById("timer").textContent = `BLM FENT BOOST: ${minutes}:${seconds}`;
+
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            blmBoostActive = false; 
+            document.getElementById("timer").textContent = "No more time";
+        }
+
+        timeLeft--;
+    }, 1000);
+}
+
 
 function update()
 {

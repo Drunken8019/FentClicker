@@ -26,3 +26,9 @@ p{
     left: 70%;
     bottom: 50%;
 }
+
+#timer{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+}
