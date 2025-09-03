@@ -10,8 +10,17 @@ var expIncr = 1;
 var Fent = 0;
 var countdown;
 var duration = 5 * 60;
+var blmBoostActive = false;
 
+class BlmFentBoost {
+    constructor() {
 
+}
+
+    buy() {
+        
+    }
+}
 
 class FentNeedle
 {
@@ -53,8 +62,13 @@ class GameHandler
 {
     static increaseFent(mult)
     {
-        Fent += linearIncr + expIncr;
-        this.displayPopUp(linearIncr + expIncr);
+        let baseFent = linearIncr + expIncr;
+        let boost = blmBoostActive ? 2 : 1;
+
+        let total = baseFent * boost;
+
+        Fent += total;
+        this.displayPopUp("+" + total);
         update();
     }
 
@@ -67,6 +81,7 @@ class GameHandler
         setTimeout(() => {FentAdded.style.opacity = "0";}, 500)
     }
 }
+
 var fentNeedle = new FentNeedle;
 var fentPipe = new FentPipe;
 FentClick.addEventListener("click", function() {
@@ -84,25 +99,29 @@ fentPipeBuy.addEventListener("click", function() {
 fentBlmBoost.addEventListener("click", () => {
     startTimer();
 })
-
 function startTimer() {
     clearInterval(countdown);
     let timeLeft = duration;
-    countdown = setInterval( () => {
+    blmBoostActive = true;
+
+    countdown = setInterval(() => {
         let minutes = Math.floor(timeLeft / 60);
         let seconds = timeLeft % 60;
         minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
 
         document.getElementById("timer").textContent = `BLM FENT BOOST: ${minutes}:${seconds}`;
-        if(timeLeft <= 0) {
-            clearInterval(countdown);
-            document.getElementById("timer").textContent = "No more time"
-        }
-        timeLeft--;
 
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            blmBoostActive = false; 
+            document.getElementById("timer").textContent = "No more time";
+        }
+
+        timeLeft--;
     }, 1000);
 }
+
 
 function update()
 {
