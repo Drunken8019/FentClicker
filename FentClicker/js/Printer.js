@@ -14,8 +14,8 @@ export default class Printer
                 {
                     container.row++;
                     if(container.row == 1) container.content += '<div class="row">';
-                    container.content += `<div class="four columns" id="comp${comp.id}">` + comp.getHtml() + '</div>';
-                    if(container.row == 3) {container.content += '</div>'; container.row = 0;}
+                    container.content += `<div class="six columns" id="comp${comp.id}">` + comp.getHtml() + '</div>';
+                    if(container.row == 2) {container.content += '</div>'; container.row = 0;}
                 }
             });
             container.applyContent();

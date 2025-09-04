@@ -25,7 +25,7 @@ var jewishFloyd = new Building(1000000, 10, "Jorge Floydstein", "Multiplies your
     GameHandler.autoFarmMult += 2;
 });
 
-var blmBoost = new Boost(10, 1, "BLM Boost", "Black Lives Matter - Doubles Fent Cooking and Fent Clicks", "blm.png", 1000 * 60 * 2, boostContainer, function(){
+var blmBoost = new Boost(10, 1, "BLM Boost", "Black Lives Matter - Doubles Fent Cooking and Fent Clicks", "blm.jpg", 1000 * 60 * 2, boostContainer, function(){
     GameHandler.autoFarmMult += 2;
     GameHandler.clickMult += 2;
 },

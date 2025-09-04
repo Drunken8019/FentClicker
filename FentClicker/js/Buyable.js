@@ -10,6 +10,7 @@ export default class Buyable extends Component
         this.price = price;
         this.priceIncr = priceIncr;
         this.event = this.buy;
+        this.count = 0;
     }
 
     buy()
@@ -18,6 +19,7 @@ export default class Buyable extends Component
         {
             GameHandler.Fent -= this.price;
             this.price *= this.priceIncr;
+            this.count++;
             this.buyEvent();
             Printer.render(this);
         }

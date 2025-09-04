@@ -19,13 +19,17 @@ export default class Building extends Buyable
             <h2>${this.name}</h2>
         </button>
         <p>${this.desc}</p>
-        <p id="priceTag${this.id}">Price: ${this.price} Fent</p>`;
+        <p id="priceTag${this.id}">Price: ${this.price} Fent</p>
+        <p id="countTag${this.id}">Owned: ${this.count}</p>`;
     }
 
     update()
     {
         let priceTag = document.getElementById(`priceTag${this.id}`);
         priceTag.innerHTML = `Price: ${this.price} Fent`;
+
+        let countTag = document.getElementById(`countTag${this.id}`);
+        countTag.innerHTML = `Owned: ${this.count}`;
     }
 
     listener()

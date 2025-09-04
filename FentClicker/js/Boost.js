@@ -72,6 +72,7 @@ class BoostTimer extends Component
             Printer.clear(timer);
             timer.dieEvent();
             timer.ttl = timer.storedTtl;
+            timer.enableBoostButton();
         }, this.ttl + 1500, this);
     }
 }

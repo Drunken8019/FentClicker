@@ -43,8 +43,8 @@ export default class GameHandler
     {
         GameHandler.FentAdded.innerHTML = content;
         GameHandler.FentAdded.style.opacity = "100%";
-        GameHandler.FentAdded.style.left = (event.clientX + 5) + "px";
-        GameHandler.FentAdded.style.top = (event.clientY + 15) + "px";
+        GameHandler.FentAdded.style.left = (event.clientX + 0) + "px";
+        GameHandler.FentAdded.style.top = (event.clientY + 0) + "px";
         setTimeout(() => {GameHandler.FentAdded.style.opacity = "0";}, 500)
     }
 
