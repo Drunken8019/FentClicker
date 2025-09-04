@@ -1,4 +1,41 @@
-var FentClick = document.getElementById("fentClick");
+import GameHandler from "./GameHandler.js";
+import Building from "./Building.js";
+import Container from "./Container.js";
+import Printer from "./Printer.js";
+import Boost from "./Boost.js";
+
+GameHandler.init();
+
+var buildingContainer = new Container("buildingContainer");
+var boostContainer = new Container("boostContainer");
+
+var fentNeedle = new Building(50, 1, "Fent Needle", "Adds +1 to your clicks", "fentNeedle.avif", buildingContainer, function(){
+    GameHandler.click += 1;
+});
+
+var fentPipe = new Building(200, 10, "Fent Pipe", "Multiplies your clicks by x2", "fent_pipe.jpg", buildingContainer, function(){
+    GameHandler.clickMult += 2;
+});
+
+var fentReactor = new Building(50000, 1, "Fent Reactor", "Cooks 100 Fent/s", "fentReactor.png", buildingContainer, function(){
+    GameHandler.autoFarm += 100;
+});
+
+var jewishFloyd = new Building(1000000, 10, "Jorge Floydstein", "Multiplies your Fent cooking by x2", "jewish-floyd.jpg", buildingContainer, function(){
+    GameHandler.autoFarmMult += 2;
+});
+
+var blmBoost = new Boost(10, 1, "BLM Boost", "Black Lives Matter - Doubles Fent Cooking and Fent Clicks", "blm.png", 1000 * 60 * 2, boostContainer, function(){
+    GameHandler.autoFarmMult += 2;
+    GameHandler.clickMult += 2;
+},
+function(){
+    GameHandler.autoFarmMult -= 2;
+    GameHandler.clickMult -= 2;
+});
+
+Printer.init();
+/*var FentClick = document.getElementById("fentClick");
 var FentAdded = document.getElementById("fentAdded");
 var currentFent = document.getElementById("currentFent");
 var fentPerClick = document.getElementById("fentPerClick");
@@ -45,12 +82,6 @@ class GameHandler
         return autoFarm * autoFarmMult;
     }
 
-    static increaseFent()
-    {
-        Fent += this.clickValue();
-        this.displayPopUp(this.clickValue());
-    }
-
     static displayPopUp(content)
     {
         FentAdded.innerHTML = content;
@@ -58,6 +89,12 @@ class GameHandler
         FentAdded.style.left = (event.clientX + 5) + "px";
         FentAdded.style.top = (event.clientY + 15) + "px";
         setTimeout(() => {FentAdded.style.opacity = "0";}, 500)
+    }
+
+    static increaseFent()
+    {
+        Fent += this.clickValue();
+        this.displayPopUp(this.clickValue());
     }
 }
 
@@ -108,7 +145,7 @@ class FentReactor
         let total = baseFent * boost;
 
         Fent += total;
-        this.displayPopUp("+" + total);
+        //GameHandler.displayPopUp("+" + total);
         update();
     }
 
@@ -236,4 +273,4 @@ var hourly = window.setInterval(function(){
     window.setTimeout(function (){
         dealer.classList.add("hidden");
     }, 1000 * 60 * 2);
-}, 1000 * 60 * 60)
+}, 1000 * 60 * 60)*/

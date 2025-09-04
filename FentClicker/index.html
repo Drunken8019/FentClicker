@@ -5,17 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FENT CLICKER</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.jpg">
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <h1>Help a nigga get sum fent!</h1>
-    <p>to generate Fent press on george droyd (fent reactor)</p>
-    <h2 id="currentFent">FentStash: 0</h2>
-    <h4 id="fentPerClick">Fent per click: 1</h4>
-    <h4 id="autoFarm">Fent per Second: 0</h4>
-    <h4>Boosts:</h4>
-    <div id="boostContainer"></div>
+    <h1 class="neon-red">Fent Clicker</h1>
+    <br>
+    <div class="container" style="margin-bottom: 60px;">
+      <div class="row">
+        <div class="three columns border-neon-green">
+          <h4 class="neon-yellow">Fent Stash</h4>
+          <h5 class="neon-purple" id="currentFent">0</h5>
+        </div>
+        <div class="three columns border-neon-green">
+          <h5 class="neon-yellow">Fent per click</h5>
+          <h5 class="neon-purple" id="fentPerClick">1</h5>
+        </div>
+        <div class="three columns border-neon-green">
+          <h5 class="neon-yellow">Fent per Second</h5>
+          <h5 class="neon-purple" id="autoFarm">0</h5>
+        </div>
+        <div class="three columns border-neon-green">
+          <h5 class="neon-yellow">Boosts</h5>
+          <div class="neon-purple" id="boostTimeContainer"></div>
+        </div>
+      </div>
+    </div>
    
     <div id="dealer" class="market hidden">
       <h3>Dealer</h3>
@@ -24,79 +40,20 @@
       <p>Crack gives you a x10 Boost to you're Clicks for 5mins</p>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div id="timer">3:00</div>
-        <div class=" 2 columns offset-by-six">
-          <h1>UPGRADES</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="four columns">
-          <div id="fentAdded"></div>
-          <button id="fentClick"><img src="img/george-droyd.jpg" style="pointer-events: none;"></button>
-      
-        </div>
- 
-        <div class="four columns">
-          <button id="fentNeedleBuy"><img src="img/fentNeedle.avif" style="width: 300px; height: 205px;"><h2>Fent-Needle</h2></button>
-          <p>Adds +1 to your clicks</p>
-          <p id="fentNeedleBuyPrice">Price: 50 Fent</p>
-        </div>
-        
-  
-        <div class="four columns">
-          <button id="fentPipeBuy"><img src="img/fent_pipe.jpg" style="width: 300px; height: 205px;"><h2>Fent-Pipe</h2></button>
-          <p>*2 to your clicks</p>
-          <p id="fentPipeBuyPrice">Price: 200 Fent</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="four columns">
-          <button id="blmBoost"><h2><img src="img/blm.png" style="width: 300px; height: 205px;">BLM-Fent-BOOOST</h2></button>
-        
-        </div>
-  
-        <div class="four columns">
-          <button id="fentDealerBuy"><h2><img src="img/fent_dealer.jpg" style="width: 300px; height: 205px;">Fent-Dealer</h2></button>
-          <p>*2 to your clicks</p>
-          <p>Price: 5000 Fent</p>
-        </div>
-  
-        <div class="four columns">
-          <button id="fentCartelBuy"><h2><img src="img/fent_cartel.jpg" style="width: 300px; height: 205px;">Fent-Cartel</h2></button>
-          <p>+10 Fent per second</p>
-          <p>Price: 20000 Fent</p>
-        </div>
-
-      </div>
-
+    <div class="container" style="margin-bottom: 60px;">
       <div class="row">
         <div class="four columns offset-by-four">
-          <button id="fentReactorBuy"><img src="img/fentReactor.png" style="width: 250px; height: 205px;"><h2>Fent-Reactor</h2></button>
-          <p>Automatically produces fent, at a rate of 100 Fent/s</p>
-          <p id="fentReactorBuyPrice">Price: 5000 Fent</p>
-        </div>
-        <div class="four columns">
-          <button id="jewishFloydBuy"><img src="img/jewish-floyd.jpg" style="width: 250px; height: 205px;"><h2>Jorge Floydstein</h2></button>
-          <p>*2 to your Fent per second</p>
-          <p id="jewishFloydBuyPrice">Price: 1000000 Fent</p>
-        </div>
-        <div class="four columns"><br></div>
-      </div>
-
-      <br>
-      <div class="row">
-        <div class=" three column offset-by-four">
-    <div class="sketchfab-embed-wrapper"> <iframe title="Fentanyl" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="600" height="500" src="https://sketchfab.com/models/987764a5990a4fcd8e533ce798c7d78d/embed?autostart=1&ui_hint=0"> </iframe> </div>
+          <div id="fentAdded" class="border-neon-green"></div>
+          <button id="fentClick"><img src="img/george-droyd.jpg" style="pointer-events: none;"></button>
         </div>
       </div>
-
     </div>
+    <h2>Upgrades</h2>
+    <div id="buildingContainer" class="container"></div>
+    <h2>Boosts</h2>
+    <div id="boostContainer" class="container"></div>
 
-    <script src="js/app.js"></script>
-    <script src="js/highscore.js"></script>
+    <script type="module" src="js/app.js"></script>
     
   </body>
 </html>

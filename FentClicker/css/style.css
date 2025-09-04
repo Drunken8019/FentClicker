@@ -1,15 +1,42 @@
+:root {
+  /* Core palette */
+  --color-bg: #0d0d0d;
+  --color-text: #f0f0f0;
+  --color-muted: #cfcfcf;
+  --color-lg: #444444;
+
+  /* Neon accents */
+  --color-neon-cyan: #00fff7;
+  --color-neon-pink: #ff00ff;
+  --color-neon-yellow: #fcee09;
+  --color-neon-purple: #9d00ff;
+  --color-neon-green: #39ff14;
+  --color-neon-orange: #ff6f00;
+  --color-neon-red: #ff073a;
+
+  /* Shadows & glow */
+  --glow-cyan: 0 0 20px var(--color-neon-cyan), 0 0 5px #00e0e0;
+  --glow-pink: 0 0 6px var(--color-neon-pink), 0 0 15px #e000e0;
+  --glow-yellow: 0 0 6px var(--color-neon-yellow), 0 0 12px #d4c800;
+  --glow-purple: 0 0 8px var(--color-neon-purple), 0 0 18px #7a00cc;
+  --glow-green: 0 0 8px var(--color-neon-green), 0 0 20px #2ebd0f;
+  --glow-orange: 0 0 8px var(--color-neon-orange), 0 0 20px #cc5500;
+  --glow-red: 0 0 8px var(--color-neon-red), 0 0 20px #cc062f;
+
+  /* Typography */
+  --font-main: 'Orbitron', 'Segoe UI', sans-serif;
+}
+
 #fentAdded
 {
-    background-color: red;
+    background-color: var(--color-lg);
+    border-radius: 100%;
+    padding: 0 50px 0 50px;
     position: absolute;
     opacity: 0;
     font-size: 100px;
     transition: opacity 1s;
     pointer-events: none;
-}
-
-p{
-    font-size: 20px;
 }
 
 .hidden
@@ -32,3 +59,107 @@ p{
     text-align: center;
     margin-bottom: 20px;
 }
+
+body {
+  text-align: center;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+}
+
+/* Headings with cyan glow */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-neon-cyan);
+  text-shadow: var(--glow-cyan);
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1em;
+  color: var(--color-muted);
+}
+
+/* Links */
+a {
+  color: var(--color-neon-pink);
+  text-decoration: none;
+  text-shadow: var(--glow-pink);
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+a:hover {
+  color: var(--color-neon-yellow);
+  text-shadow: var(--glow-yellow);
+}
+
+/* Buttons */
+button {
+  background: transparent;
+  border: 2px solid var(--color-neon-pink);
+  color: var(--color-neon-pink);
+  padding: 0.5em 1em;
+  font-family: var(--font-main);
+  cursor: pointer;
+  text-shadow: var(--glow-pink);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+button:hover {
+  border-color: var(--color-neon-cyan);
+  color: var(--color-neon-cyan);
+  text-shadow: var(--glow-cyan);
+  box-shadow: 0 0 12px var(--color-neon-cyan);
+}
+
+/* Inputs */
+input, select, textarea {
+  background: #111;
+  border: 2px solid var(--color-neon-purple);
+  color: var(--color-text);
+  padding: 0.5em;
+  border-radius: 6px;
+  font-family: var(--font-main);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--color-neon-cyan);
+  box-shadow: 0 0 10px var(--color-neon-cyan);
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+th, td {
+  border: 1px solid var(--color-neon-purple);
+  padding: 0.5em 1em;
+  text-align: left;
+}
+th {
+  background: rgba(157, 0, 255, 0.2);
+  color: var(--color-neon-purple);
+  text-shadow: var(--glow-purple);
+}
+
+/* Utility classes */
+.neon-cyan   { color: var(--color-neon-cyan); text-shadow: var(--glow-cyan); }
+.neon-pink   { color: var(--color-neon-pink); text-shadow: var(--glow-pink); }
+.neon-yellow { color: var(--color-neon-yellow); text-shadow: var(--glow-yellow); }
+.neon-purple { color: var(--color-neon-purple); text-shadow: var(--glow-purple); }
+.neon-green { color: var(--color-neon-green); text-shadow: var(--glow-green); }
+.neon-orange { color: var(--color-neon-orange); text-shadow: var(--glow-orange); }
+.neon-red { color: var(--color-neon-red); text-shadow: var(--glow-red); }
+
+.border-neon-cyan   { border: 2px solid var(--color-neon-cyan);   box-shadow: var(--glow-cyan); }
+.border-neon-pink   { border: 2px solid var(--color-neon-pink);   box-shadow: var(--glow-pink); }
+.border-neon-yellow { border: 2px solid var(--color-neon-yellow); box-shadow: var(--glow-yellow); }
+.border-neon-purple { border: 2px solid var(--color-neon-purple); box-shadow: var(--glow-purple); }
+.border-neon-green  { border: 2px solid var(--color-neon-green);  box-shadow: var(--glow-green); }
+.border-neon-orange { border: 2px solid var(--color-neon-orange); box-shadow: var(--glow-orange); }
+.border-neon-red    { border: 2px solid var(--color-neon-red);    box-shadow: var(--glow-red); }
