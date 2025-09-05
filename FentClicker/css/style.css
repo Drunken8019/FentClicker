@@ -147,6 +147,122 @@ th {
   text-shadow: var(--glow-purple);
 }
 
+
+/* navbar */
+.navbar {
+  background: rgba(10, 10, 10, 0.9);
+  border-bottom: 2px solid var(--color-neon-green);
+  box-shadow: var(--glow-green);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-neon-red);
+  text-shadow: var(--glow-red);
+  letter-spacing: 2px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-neon-yellow);
+  text-shadow: var(--glow-yellow);
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar ul li a:hover {
+  color: var(--color-neon-cyan);
+  text-shadow: var(--glow-cyan);
+}
+
+
+/* Popup Overlay */
+.popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  position: relative;
+  background: var(--color-bg);
+  padding: 2em 3em;
+  border-radius: 16px;
+  box-shadow: var(--glow-purple);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+.popup-content h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.popup-content button {
+  margin-top: 1.5em;
+}
+
+.needle {
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.needle.left {
+  left: -150px;
+
+  transform: translateY(-100px) rotate(80deg);
+}
+
+.needle.right {
+ right: -150px;
+  transform: translateY(-100px) rotate(-80deg);
+}
+
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+    margin-top: 1em;
+  }
+}
+
+
 /* Utility classes */
 .neon-cyan   { color: var(--color-neon-cyan); text-shadow: var(--glow-cyan); }
 .neon-pink   { color: var(--color-neon-pink); text-shadow: var(--glow-pink); }
