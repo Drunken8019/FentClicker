@@ -27,46 +27,16 @@
   --font-main: 'Orbitron', 'Segoe UI', sans-serif;
 }
 
-button:disabled{
-  color: var(--color-neon-green);
-  border-color: var(--color-neon-green);
-  box-shadow: 0 0 12px var(--color-neon-green);
-  cursor: not-allowed;
-  filter: grayscale(100%);
-}
-
-button:disabled:hover{
-  color: var(--color-neon-green);
-  border-color: var(--color-neon-green);
-  box-shadow: 0 0 12px var(--color-neon-green);
-}
-
-.menu-bar{
-  /*background-color: var(--color-lg);*/
-   position: sticky; 
-   top: 10px;
-   padding: 20px;
-}
-
-@media (max-width: 768px) {
-  .menu-bar{
-  /*background-color: var(--color-lg);*/
-   position: relative; 
-   padding: 20px;
-}
-}
-
-.fentPopUp{
-    position: fixed;
+#fentAdded
+{
+    background-color: var(--color-lg);
+    border-radius: 100%;
+    padding: 0 50px 0 50px;
+    position: absolute;
     opacity: 0;
-    z-index: 5;
-    transition: opacity 1s ease,
-                top 5s ease; 
+    font-size: 100px;
+    transition: opacity 1s;
     pointer-events: none;
-}
-
-.fentPopUp.visible{
-  opacity: 1;
 }
 
 .hidden
@@ -115,14 +85,14 @@ p {
 
 /* Links */
 a {
-  color: var(--color-neon-yellow);
+  color: var(--color-neon-pink);
   text-decoration: none;
-  text-shadow: var(--glow-yellow);
+  text-shadow: var(--glow-pink);
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 a:hover {
-  color: var(--color-neon-pink);
-  text-shadow: var(--glow-pink);
+  color: var(--color-neon-yellow);
+  text-shadow: var(--glow-yellow);
 }
 
 /* Buttons */
