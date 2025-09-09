@@ -1,6 +1,6 @@
 export default class GameHandler
 {
-    static Fent = 0;
+    static Fent = 99999999999999999;
 
     static click = 1;
     static clickMult = 0;
