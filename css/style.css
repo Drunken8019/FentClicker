@@ -85,14 +85,14 @@ p {
 
 /* Links */
 a {
-  color: var(--color-neon-pink);
+  color: var(--color-neon-yellow);
   text-decoration: none;
-  text-shadow: var(--glow-pink);
+  text-shadow: var(--glow-yellow);
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 a:hover {
-  color: var(--color-neon-yellow);
-  text-shadow: var(--glow-yellow);
+  color: var(--color-neon-pink);
+  text-shadow: var(--glow-pink);
 }
 
 /* Buttons */
@@ -113,6 +113,14 @@ button:hover {
   text-shadow: var(--glow-cyan);
   box-shadow: 0 0 12px var(--color-neon-cyan);
 }
+
+.menu-bar{
+  /*background-color: var(--color-lg);*/
+   position: sticky; 
+   top: 10px;
+   padding: 20px;
+}
+
 
 /* Inputs */
 input, select, textarea {
