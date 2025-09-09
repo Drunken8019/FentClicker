@@ -19,6 +19,7 @@ export default class Buyable extends Component
         {
             GameHandler.Fent -= this.price;
             this.price *= this.priceIncr;
+            this.price = Math.round(this.price);
             this.count++;
             this.buyEvent();
             Printer.render(this);

@@ -114,6 +114,11 @@ export default class Boost extends Buyable
         this.timer.start();
     }
 
+    start()
+    {
+        this.timer.start();
+    }
+
     update()
     {
         let priceTag = document.getElementById(`priceTag${this.id}`);

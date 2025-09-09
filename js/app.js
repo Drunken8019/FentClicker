@@ -9,23 +9,27 @@ GameHandler.init();
 var buildingContainer = new Container("buildingContainer");
 var boostContainer = new Container("boostContainer");
 
-var fentNeedle = new Building(50, 1, "Fent Needle", "Adds +1 to your clicks", "fentNeedle.avif", buildingContainer, function(){
+var fentNeedle = new Building(50, 1.2, "Fent Needle", "Adds +1 to your clicks", "fentNeedle.avif", buildingContainer, function(){
     GameHandler.click += 1;
 });
 
-var fentPipe = new Building(200, 10, "Fent Pipe", "Multiplies your clicks by x2", "fent_pipe.jpg", buildingContainer, function(){
+var fentPipe = new Building(200, 1.5, "Fent Pipe", "Multiplies your clicks by x2", "fent_pipe.jpg", buildingContainer, function(){
     GameHandler.clickMult += 2;
 });
 
-var fentReactor = new Building(50000, 1, "Fent Reactor", "Cooks 100 Fent/s", "fentReactor.png", buildingContainer, function(){
+var fentReactor = new Building(5000, 1.1, "Fent Reactor", "Cooks 100 Fent/s", "fentReactor.png", buildingContainer, function(){
     GameHandler.autoFarm += 100;
 });
 
-var jewishFloyd = new Building(1000000, 10, "Jorge Floydstein", "Multiplies your Fent cooking by x2", "jewish-floyd.jpg", buildingContainer, function(){
+var jewishFloyd = new Building(100000, 1.5, "Jorge Floydstein", "Multiplies your Fent cooking by x2", "jewish-floyd.jpg", buildingContainer, function(){
     GameHandler.autoFarmMult += 2;
 });
 
-var blmBoost = new Boost(10, 1, "BLM Boost", "Black Lives Matter - Doubles Fent Cooking and Fent Clicks", "blm.jpg", 1000 * 60 * 2, boostContainer, function(){
+var fentPress = new Building(100000, 1.1, "Fent Press", "Compresses your Fent into Bricks, increasing your Fent Cooking by 200 Fent/s", "fentPress.jpg",buildingContainer, function(){
+    GameHandler.autoFarm += 200;
+})
+
+var blmBoost = new Boost(1000, 1, "BLM Boost", "Black Lives Matter - Doubles Fent Cooking and Fent Clicks", "blm.jpg", 1000 * 60 * 2, boostContainer, function(){
     GameHandler.autoFarmMult += 2;
     GameHandler.clickMult += 2;
 },

@@ -1,6 +1,6 @@
 export default class GameHandler
 {
-    static Fent = 9999999;
+    static Fent = 0;
 
     static click = 1;
     static clickMult = 0;
@@ -39,19 +39,32 @@ export default class GameHandler
         return GameHandler.autoFarm * mult * globalMult;
     }
 
-    static displayPopUp(content)
+    static displayPopUp()
     {
-        GameHandler.FentAdded.innerHTML = content;
-        GameHandler.FentAdded.style.opacity = "100%";
-        GameHandler.FentAdded.style.left = (event.clientX + 0) + "px";
-        GameHandler.FentAdded.style.top = (event.clientY + 0) + "px";
-        setTimeout(() => {GameHandler.FentAdded.style.opacity = "0";}, 500)
+        let imgId = Math.floor(Math.random() * 9999999);
+        let content = `<div class="fentPopUp" id="clickPopUp${imgId}"><img src="img/needle_tp.png" width="200"></div>`;
+        GameHandler.FentAdded.innerHTML += content;
+        let elem = document.getElementById(`clickPopUp${imgId}`);
+        elem.classList.add("visible");
+        
+        elem.style.left = (event.clientX) + "px";
+        elem.style.top = (event.clientY) + "px";
+
+        setTimeout(() => {
+            let elem = document.getElementById(`clickPopUp${imgId}`);
+            elem.classList.remove("visible");
+        }, 800)
+
+        setTimeout(() => {
+            let elem = document.getElementById(`clickPopUp${imgId}`);
+            if(elem) elem.remove();
+        }, 20000);
     }
 
     static increaseFent()
     {
         GameHandler.Fent += this.clickValue();
-        this.displayPopUp(this.clickValue());
+        this.displayPopUp();
     }
 
     static update()

@@ -48,16 +48,25 @@ button:disabled:hover{
    padding: 20px;
 }
 
-#fentAdded
-{
-    background-color: var(--color-lg);
-    border-radius: 100%;
-    padding: 0 50px 0 50px;
-    position: absolute;
+@media (max-width: 768px) {
+  .menu-bar{
+  /*background-color: var(--color-lg);*/
+   position: relative; 
+   padding: 20px;
+}
+}
+
+.fentPopUp{
+    position: fixed;
     opacity: 0;
-    font-size: 100px;
-    transition: opacity 1s;
+    z-index: 5;
+    transition: opacity 1s ease,
+                top 5s ease; 
     pointer-events: none;
+}
+
+.fentPopUp.visible{
+  opacity: 1;
 }
 
 .hidden
