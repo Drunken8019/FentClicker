@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FENT CLICKER</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.jpg">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <nav class="navbar">
+  <div class="logo">Fent Clicker</div>
+  <ul>
+    <li><a href="bossfight.html">Bossfight</a></li>
+   
+  </ul>
+</nav>
+
+    <h1 class="neon-red">Fent Clicker</h1>
+    <br>
+    <div class="container" style="margin-bottom: 60px;">
+      <div class="row">
+        <div class="three columns border-neon-green">
+          <h4 class="neon-yellow">Fent Stash</h4>
+          <h5 class="neon-purple" id="currentFent">0</h5>
+        </div>
+        <div class="three columns border-neon-green">
+          <h5 class="neon-yellow">Fent per click</h5>
+          <h5 class="neon-purple" id="fentPerClick">1</h5>
+        </div>
+        <div class="three columns border-neon-green">
+          <h5 class="neon-yellow">Fent per Second</h5>
+          <h5 class="neon-purple" id="autoFarm">0</h5>
+        </div>
+        <div class="three columns border-neon-green">
+          <h5 class="neon-yellow">Boosts</h5>
+          <div class="neon-purple" id="boostTimeContainer"></div>
+        </div>
+      </div>
+    </div>
+   
+    <div id="dealer" class="market hidden">
+      <h3>Dealer</h3>
+      <button id="crackBuy" style="width: 100%;"><img src="img/crack.jpg" style="width: 100px; height: 100px;"><h5>Buy Crack</h5></button>
+      <p>Price: 90000 Fent</p>
+      <p>Crack gives you a x10 Boost to you're Clicks for 5mins</p>
+    </div>
+
+    <div class="container" style="margin-bottom: 60px;">
+      <div class="row">
+        <div class="four columns offset-by-four">
+          <div id="fentAdded" class="border-neon-green"></div>
+          <button id="fentClick"><img src="img/george-droyd.jpg" style="pointer-events: none;"></button>
+        </div>
+      </div>
+    </div>
+    <h2>Upgrades</h2>
+    <div id="buildingContainer" class="container"></div>
+    <h2>Boosts</h2>
+    <div id="boostContainer" class="container"></div>
+
+    <script type="module" src="js/app.js"></script>
+    
+  </body>
+</html>

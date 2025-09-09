@@ -3,8 +3,10 @@ import Building from "./Building.js";
 import Container from "./Container.js";
 import Printer from "./Printer.js";
 import Boost from "./Boost.js";
+import Bossfight from "./Bossfight.js";
 
 GameHandler.init();
+
 
 var buildingContainer = new Container("buildingContainer");
 var boostContainer = new Container("boostContainer");

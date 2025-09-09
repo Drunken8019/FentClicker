@@ -6,29 +6,57 @@
     <title>Fight the Police</title>
        <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bossfight.css">
-
-    <style>
-        h1{
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
-      <header>
-        <div class="container-nav">
-            <div id="logo">GFG</div>
-            <nav>
-                <ul class="nav-links">
-                    
-                    <li><a href="index.html">BACK TO HOME</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-      <h1>Cops pullingup! safe the fent!!!</h1>
+    <nav class="navbar">
+  <div class="logo">Fent Clicker</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+   
+  </ul>
+</nav>
+      <h1 class="neon-red">Safe the your Fent!</h1>
 
-    <div class="container">
+      <div class="container" style="margin-bottom: 60px;">
+      <div class="row">
+        <div class="five columns">
+          <div id="fentAdded" class="border-neon-green"></div>
+          <button id="fentClick" class="yourFentBossfight"><img src="img/george-droyd.jpg" style="pointer-events: none; width: 350px;"></button>
+        </div>
+<div class="one column">
+            <h2 class="neon-yellow" style="text-align: center; margin-top: 150px;">VS</h2>
+            <h2 id="timer">30</h2>
+</div>
+         <div class="five columns">
+          <div id="fentAdded" class="border-neon-green"></div>
+          <button id="copFent"><img src="img/cropped.gif" style="pointer-events: none;"></button>
+        </div>
+      </div>
+    </div>
+
+      <div class="container" style="margin-bottom: 60px;">
+      <div class="row">
+        <div class="six columns border-neon-green">
+          <h4 class="neon-yellow">Your Fent</h4>
+          <h5 class="neon-purple" id="yourFentBossfight">0</h5>
+        </div>
+        <div class="six columns border-neon-green">
+          <h4 class="neon-yellow">Cop Fent</h4>
+          <h5 class="neon-purple" id="copFentBossfight">0</h5>
+        </div>
+       
+      </div>
+    </div>
+
+    <div id="winnerPopup" class="popup hidden">
+  <div class="popup-content border-neon-purple">
+    <img src="img/needle_tp.png" class="needle left">
+    <h2 id="winnerMessage" class="neon-yellow">Winner</h2>
+    <img src="img/needle_tp.png" class="needle right">
+    <button id="popupClose" class="neon-pink">OK</button>
+  </div>
+</div>
+<!--    <div class="container">
         <div class="row">
             <div class="six columns">
                 <img src="/img/george-droyd.jpg" width="350" alt="">
@@ -40,6 +68,8 @@
                 <h2 id="copAmount">COP Amount: </h2>
         </div>
     </div>
- 
+    </div>-->
+
+    <script type="module" src="js/InitBossfight.js"></script>
 </body>
 </html>
