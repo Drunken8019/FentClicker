@@ -9,12 +9,13 @@ export default class Bossfight {
     static bossStarted = false;
     static gameOver = false;
     static currentBoss = 'cop';
+    static canClick = true;
 
     static bossImages = {
         'cop': 'img/cropped.gif',
-        'narc': 'img/ice_officer.jpg',
-        'dealer': 'img/jewleaningback.jpg',
-        'cartel': 'img/kirkified_temple.webp'
+        'narc': 'img/ice_officer.avif',
+        'dealer': 'img/jewleaningback.avif',
+        'cartel': 'img/kirkified_temple.avif'
     };
 
     static bossDanceGifs = {
@@ -41,6 +42,14 @@ export default class Bossfight {
         Bossfight.loadBossImage();
 
         Bossfight.fentClickButton.addEventListener("click", function() {
+            if(!Bossfight.canClick) return;
+            Bossfight.canClick = false;
+            Bossfight.fentClickButton.classList.add("clicked");
+            setTimeout(() => {
+                Bossfight.fentClickButton.classList.remove("clicked");
+                Bossfight.canClick = true;
+            }, 2);
+
             if (!Bossfight.bossStarted && !Bossfight.gameOver) {
                 Bossfight.bossStarted = true;
                 Bossfight.startCopGenerator();

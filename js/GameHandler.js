@@ -42,7 +42,7 @@ export default class GameHandler
     static displayPopUp()
     {
         let imgId = Math.floor(Math.random() * 9999999);
-        let content = `<div class="fentPopUp" id="clickPopUp${imgId}"><img src="img/needle_tp.png" width="200"></div>`;
+        let content = `<div class="fentPopUp" id="clickPopUp${imgId}"><img src="img/needle_tp.avif" width="200"></div>`;
         GameHandler.FentAdded.innerHTML += content;
         let elem = document.getElementById(`clickPopUp${imgId}`);
         elem.classList.add("visible");

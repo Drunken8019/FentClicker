@@ -58,7 +58,7 @@ export default class BossAnimations {
         
         const img = document.createElement('img');
         img.className = 'coke-image';
-        img.src = 'img/crack.jpg';
+        img.src = 'img/crack.avif';
         img.alt = 'Coke Blessing';
         
         blessing.appendChild(text1);
