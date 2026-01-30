@@ -1,8 +1,13 @@
+import Perks from './Perks.js';
+import BossAnimations from './BossAnimations.js';
+
 export default class Bossfight {
     static copAutoFent = 0;
     static yourClickFent = 0;
     static timeLeft = 15; // sekunden timer am anfang
-    static copInterval = null; 
+    static copInterval = null;
+    static bossStarted = false;
+    static currentBoss = 'cop';
 
     static fentClickButton = document.getElementById("fentClick");
     static yourFentCounter = document.getElementById("yourFentBossfight");
@@ -14,20 +19,34 @@ export default class Bossfight {
     static popupClose = document.getElementById("popupClose");
 
     static init() {
+        Perks.init();
+        Bossfight.currentBoss = Bossfight.getBossFromURL();
+
         Bossfight.fentClickButton.addEventListener("click", function() {
+            if (!Bossfight.bossStarted) {
+                Bossfight.bossStarted = true;
+                Bossfight.startCopGenerator();
+                Bossfight.startTimer();
+            }
             Bossfight.increaseYourFent();
         });
 
-        Bossfight.startCopGenerator();
-        Bossfight.startTimer();
-
         Bossfight.popupClose.addEventListener("click", () => {
             Bossfight.popup.classList.add("hidden");
+            setTimeout(() => {
+                window.location.href = 'roadmap.html';
+            }, 500);
         });
     }
 
+    static getBossFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('boss') || 'cop';
+    }
+
     static increaseYourFent() {
-        Bossfight.yourClickFent += 1;
+        const multiplier = Perks.getMultiplier();
+        Bossfight.yourClickFent += (1 * multiplier);
         Bossfight.updateYourFentDisplay();
     }
 
@@ -71,14 +90,21 @@ export default class Bossfight {
     static checkWinner() {
         let result;
         if (Bossfight.yourClickFent > Bossfight.copAutoFent) {
-            result = "you swiss chees'ed the cop!";
+            result = "GEORGE DROYD WON!<br>Blessed with COKE!";
+            Bossfight.popupMessage.innerHTML = result;
+            Bossfight.popup.classList.remove("hidden");
+            BossAnimations.playPlayerWin().then(() => {
+                // Keep popup visible for result
+            });
         } else if (Bossfight.yourClickFent < Bossfight.copAutoFent) {
-            result = "the cop swiss chees'ed your ahh!";
+            result = "THE COP SWISS CHEESE'D YOUR AHH!";
+            Bossfight.popupMessage.innerHTML = result;
+            Bossfight.popup.classList.remove("hidden");
+            BossAnimations.playBossDance();
         } else {
-            result = "swiss chees'ed each other!";
+            result = "SWISS CHEESE'D EACH OTHER!";
+            Bossfight.popupMessage.innerHTML = result;
+            Bossfight.popup.classList.remove("hidden");
         }
-
-        Bossfight.popupMessage.innerHTML = result;
-        Bossfight.popup.classList.remove("hidden");
     }
 }

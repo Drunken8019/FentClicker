@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boss Roadmap - Fent Clicker</title>
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/roadmap.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Fent Clicker</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="roadmap.html">Boss Roadmap</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="neon-red">BOSS ROADMAP</h1>
+        <div class="roadmap-grid">
+            <div class="boss-card" data-boss="cop">
+                <div class="boss-image-container">
+                    <img src="img/cropped.gif" alt="The Cop" class="boss-image">
+                </div>
+                <h3 class="neon-yellow">The Cop</h3>
+                <p class="neon-purple">Difficulty: Easy</p>
+                <button class="boss-button neon-green" onclick="window.location.href='bossfight.html?boss=cop'">FIGHT</button>
+            </div>
+
+            <div class="boss-card" data-boss="narc">
+                <div class="boss-image-container">
+                    <img src="img/ice_officer.jpg" alt="The ICE" class="boss-image">
+                </div>
+                <h3 class="neon-yellow">THE ICE OFFICER</h3>
+                <p class="neon-purple">Difficulty: Medium</p>
+                <button class="boss-button neon-green" onclick="window.location.href='bossfight.html?boss=narc'">FIGHT</button>
+            </div>
+
+            <div class="boss-card" data-boss="dealer">
+                <div class="boss-image-container">
+                    <img src="img/jewleaningback.jpg" alt="The Goy" class="boss-image">
+                </div>
+                <h3 class="neon-yellow">Peasant Goy</h3>
+                <p class="neon-purple">Difficulty: Hard</p>
+                <button class="boss-button neon-green" onclick="window.location.href='bossfight.html?boss=dealer'">FIGHT</button>
+            </div>
+
+            <div class="boss-card" data-boss="cartel">
+                <div class="boss-image-container">
+                    <img src="img/kirkified_temple.webp" alt="The Cartel" class="boss-image">
+                </div>
+                <h3 class="neon-yellow">The Kirkified Tower</h3>
+                <p class="neon-purple">Difficulty: Extreme</p>
+                <button class="boss-button neon-green" onclick="window.location.href='bossfight.html?boss=cartel'">FIGHT</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/RoadmapHandler.js"></script>
+</body>
+</html>
