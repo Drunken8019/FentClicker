@@ -54,12 +54,12 @@ export default class BossAnimations {
         
         const text2 = document.createElement('div');
         text2.className = 'blessing-text neon-yellow';
-        text2.innerHTML = 'BLESSED WITH COKE!';
+        text2.innerHTML = 'BLESSED WITH FENT!';
         
         const img = document.createElement('img');
         img.className = 'coke-image';
-        img.src = 'img/crack.avif';
-        img.alt = 'Coke Blessing';
+        img.src = 'img/fentNeedle.avif';
+        img.alt = 'Fent Blessing';
         
         blessing.appendChild(text1);
         blessing.appendChild(text2);

@@ -127,11 +127,11 @@ export default class Bossfight {
         if (Bossfight.yourClickFent > Bossfight.copAutoFent) {
            
             await BossAnimations.playPlayerWin();
-            Bossfight.popupMessage.innerHTML = "GEORGE DROYD WON!<br>BLESSED WITH COKE!";
+            Bossfight.popupMessage.innerHTML = "GEORGE DROYD WON!<br>BLESSED WITH FENT!";
         } else if (Bossfight.yourClickFent < Bossfight.copAutoFent) {
           
             await BossAnimations.playBossDance();
-            Bossfight.popupMessage.innerHTML = "THE COP SWISS CHEESE'D YOUR AHH!";
+            Bossfight.popupMessage.innerHTML = "THE COP SWISS CHEESE'D YOUR AHH!<br> AND STEALS YOUR FENT";
         } else {
           
             Bossfight.popupMessage.innerHTML = "SWISS CHEESE'D EACH OTHER!";
