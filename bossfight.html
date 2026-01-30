@@ -17,51 +17,53 @@
         </ul>
     </nav>
 
-    <h1 class="neon-red">DEFEAT THE ENEMY!</h1>
+    <div class="bossfight-wrapper">
+        <h1 class="neon-red">PROTECT YOUR HONOR AND CRACK!</h1>
 
-    <!-- Perk Display -->
-    <div id="perkDisplay" class="perk-display">
-        <div class="perk-info">
-            <p class="neon-green">Perks (Press Q, W, E, R)</p>
-            <div id="activePerksList" class="active-perks">
-                <p class="neon-purple">No active perks</p>
+        <div id="perkDisplay" class="perk-display">
+            <div class="perk-info">
+                <p class="neon-green">Perks (Q, W, E, R)</p>
+                <div id="activePerksList" class="active-perks">
+                    <p class="neon-purple">No perks</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="container" style="margin-bottom: 60px;">
-        <div class="row">
-            <div class="five columns">
-                <div id="fentAdded" class="border-neon-green"></div>
-                <button id="fentClick" class="yourFentBossfight">
-                    <img src="img/george-droyd.jpg" style="pointer-events: none; width: 350px;">
+        
+        <div class="timer-container">
+            <h2 id="timer" class="neon-red timer-display">30</h2>
+        </div>
+
+        
+        <div class="fight-arena">
+            <div class="player-side">
+                <button id="fentClick" class="fight-button player-button">
+                    <img src="img/george-droyd.jpg" alt="George Droyd" class="fighter-image">
                 </button>
+                <div class="fighter-stats">
+                    <h4 class="neon-yellow">Your Fent</h4>
+                    <h5 class="neon-purple" id="yourFentBossfight">0g</h5>
+                </div>
             </div>
-            <div class="one column">
-                <h2 class="neon-yellow" style="text-align: center; margin-top: 150px;">VS</h2>
-                <h2 id="timer" class="neon-red" style="text-align: center; font-size: 2.5em;">30</h2>
+
+            <div class="vs-divider">
+                <span class="neon-yellow">VS</span>
             </div>
-            <div class="five columns">
-                <div id="fentAdded" class="border-neon-green"></div>
-                <button id="copFent" class="boss-button-display">
-                    <img src="img/cropped.gif" style="pointer-events: none;">
+
+            <div class="boss-side">
+                <button id="copFent" class="fight-button boss-button">
+                    <img id="bossImage" src="img/cropped.gif" alt="Boss" class="fighter-image boss-image">
                 </button>
+                <div class="fighter-stats">
+                    <h4 class="neon-yellow">Boss Fent</h4>
+                    <h5 class="neon-purple" id="copFentBossfight">0g</h5>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container" style="margin-bottom: 60px;">
-        <div class="row">
-            <div class="six columns border-neon-green">
-                <h4 class="neon-yellow">Your Fent</h4>
-                <h5 class="neon-purple" id="yourFentBossfight">0</h5>
-            </div>
-            <div class="six columns border-neon-green">
-                <h4 class="neon-yellow">Boss Fent</h4>
-                <h5 class="neon-purple" id="copFentBossfight">0</h5>
-            </div>
-        </div>
-    </div>
+
+    <div id="animationContainer" class="animation-container"></div>
 
     <div id="winnerPopup" class="popup hidden">
         <div class="popup-content border-neon-purple">

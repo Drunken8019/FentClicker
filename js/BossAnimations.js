@@ -1,63 +1,93 @@
 export default class BossAnimations {
     
     static async playBossDance() {
-        const copImg = document.querySelector('#copFent img');
-        if (!copImg) return;
+        const container = document.getElementById('animationContainer');
+        
+    
+        const backdrop = document.createElement('div');
+        backdrop.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 600;
+        `;
+        
+        const img = document.createElement('img');
+        img.style.cssText = `
+            width: 500px;
+            height: 400px;
+            object-fit: contain;
+            animation: bossDanceAnimation 0.5s infinite;
+        `;
+        
+        const currentBoss = new URLSearchParams(window.location.search).get('boss') || 'cop';
+        const danceGifSrc = 'img/jews_dancing.gif';
+        
+        img.src = danceGifSrc;
+        img.alt = 'Victory Dance';
+        backdrop.appendChild(img);
+        container.appendChild(backdrop);
 
-        copImg.classList.add('dancing');
-        await new Promise(resolve => setTimeout(resolve, 3000));
-        copImg.classList.remove('dancing');
+  
+        await new Promise(resolve => setTimeout(resolve, 4000));
+        
+
+        backdrop.remove();
     }
 
     static async playPlayerWin() {
-        const playerContainer = document.querySelector('.five.columns:first-of-type');
-        if (!playerContainer) return;
-
-        // Create coke blessing animation
+        const container = document.getElementById('animationContainer');
+        
+      
         const blessing = document.createElement('div');
         blessing.className = 'coke-blessing';
-        blessing.innerHTML = `
-            <div class="blessing-text neon-green">GEORGE DROYD WON!</div>
-            <div class="blessing-text neon-yellow">BLESSED WITH COKE!</div>
-            <img src="img/coke.gif" class="coke-image" alt="Coke Blessing">
-        `;
         
-        playerContainer.appendChild(blessing);
+        const text1 = document.createElement('div');
+        text1.className = 'blessing-text neon-green';
+        text1.innerHTML = 'GEORGE DROYD WON!';
+        
+        const text2 = document.createElement('div');
+        text2.className = 'blessing-text neon-yellow';
+        text2.innerHTML = 'BLESSED WITH COKE!';
+        
+        const img = document.createElement('img');
+        img.className = 'coke-image';
+        img.src = 'img/crack.jpg';
+        img.alt = 'Coke Blessing';
+        
+        blessing.appendChild(text1);
+        blessing.appendChild(text2);
+        blessing.appendChild(img);
+        container.appendChild(blessing);
 
-        // Animate blessing
-        await new Promise(resolve => setTimeout(resolve, 2000));
+   
+        await new Promise(resolve => setTimeout(resolve, 2500));
 
-        // Throw boss into fent reactor
-        const copImg = document.querySelector('#copFent img');
-        if (copImg) {
-            copImg.classList.add('thrown-animation');
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            copImg.classList.add('disappeared');
-        }
-
-        // Remove blessing
         blessing.remove();
-    }
 
-    static async playBossWin() {
-        const copImg = document.querySelector('#copFent img');
-        if (!copImg) return;
-
-        // Play dancing gif
-        copImg.classList.add('boss-victory-dance');
-        await new Promise(resolve => setTimeout(resolve, 4000));
-        copImg.classList.remove('boss-victory-dance');
+        const bossImage = document.getElementById('bossImage');
+        if (bossImage) {
+            bossImage.classList.add('thrown-animation');
+            await new Promise(resolve => setTimeout(resolve, 1500));
+        }
     }
 
     static createExplosionEffect(element) {
         const rect = element.getBoundingClientRect();
+        const container = document.getElementById('animationContainer');
         const explosion = document.createElement('div');
         explosion.className = 'explosion';
         explosion.style.left = rect.left + 'px';
         explosion.style.top = rect.top + 'px';
         explosion.innerHTML = `<div class="explosion-particles"></div>`;
         
-        document.body.appendChild(explosion);
+        container.appendChild(explosion);
 
         setTimeout(() => explosion.remove(), 1000);
     }

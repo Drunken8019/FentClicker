@@ -1,4 +1,6 @@
 
+/* Bossfight Styling - Improved Layout */
+
 * {
     margin: 0;
     padding: 0;
@@ -12,150 +14,164 @@ body {
     line-height: 1.6;
 }
 
-
-header {
-    background-color: #222;
-    color: #fff;
-    padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.container-nav {
+/* Main Bossfight Wrapper */
+.bossfight-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#logo {
-    font-size: 1.8em;
-    font-weight: bold;
-}
-
-.nav-links {
-    list-style-type: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background 0.2s ease;
-}
-
-.nav-links li a:hover {
-    background-color: #444;
-}
-
-
-h1 {
-    text-align: center;
-    font-size: 3.2em;
-    margin: 40px 0;
-    color: #f33;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 30px;
-    padding: 30px 20px;
-    flex-wrap: wrap;
-}
-
-.container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    border: 3px solid #333;
-}
-
-#yourAmount, #copAmount {
-    font-size: 1.5em;
-    margin-top: 15px;
-}
-
-#copAmount {
-    text-align: right;
-    color: #c33;
-}
-
-#yourAmount {
-    text-align: left;
-    color: #3f3;
-}
-
-#fentAdded {
-    background-color: red;
-    position: absolute;
-    opacity: 0;
-    font-size: 60px;
-    font-weight: bold;
-    transition: opacity 1s;
-    pointer-events: none;
-    color: white;
-    z-index: 1000;
-    text-shadow: 2px 2px 5px black;
-}
-
-#timer {
-    font-size: 50px;
-    text-align: center;
-    margin: 20px 0;
-    color: #ff0;
-}
-
-button {
-    background-color: #444;
-    color: white;
     padding: 10px 20px;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 100vh;
 }
 
-button:hover {
-    background-color: #666;
+.bossfight-wrapper h1 {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 2.5em;
+    text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
 }
-/* Perk Display Styles */
+
+/* Timer Container */
+.timer-container {
+    text-align: center;
+    padding: 5px;
+}
+
+.timer-display {
+    font-size: 2.5em;
+    margin: 0;
+    text-shadow: 0 0 20px #ff0000;
+    color: #ff0000;
+}
+
+/* Fight Arena - Main Battleground */
+.fight-arena {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    flex: 1;
+    min-height: 350px;
+}
+
+.player-side, .boss-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.vs-divider {
+    font-size: 2.2em;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00;
+    padding: 0 15px;
+    color: #ffff00;
+}
+
+/* Fight Buttons */
+.fight-button {
+    width: 200px;
+    height: 250px;
+    border: 3px solid #00ff00;
+    background: rgba(0, 255, 0, 0.08);
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.fight-button:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.8), inset 0 0 15px rgba(0, 255, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.fight-button:active {
+    transform: scale(0.95);
+}
+
+.fighter-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.boss-image {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Fighter Stats */
+.fighter-stats {
+    text-align: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 255, 0, 0.5);
+}
+
+.fighter-stats h4 {
+    margin: 3px 0;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.fighter-stats h5 {
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+/* Perk Display */
 .perk-display {
     position: fixed;
-    top: 100px;
+    top: 80px;
     left: 20px;
-    background: rgba(0, 255, 0, 0.1);
+    background: rgba(0, 255, 0, 0.12);
     border: 2px solid #00ff00;
-    padding: 15px;
+    padding: 12px;
     border-radius: 5px;
     z-index: 100;
-    min-width: 250px;
-}
-
-.perk-info p {
-    margin: 0 0 10px 0;
-    font-weight: bold;
-}
-
-.active-perks {
-    max-height: 150px;
+    min-width: 220px;
+    max-width: 300px;
+    max-height: 200px;
     overflow-y: auto;
 }
 
+.perk-info p {
+    margin: 0 0 8px 0;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.active-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
 .perk-item {
-    background: rgba(255, 255, 0, 0.2);
-    padding: 8px;
-    margin: 5px 0;
+    background: rgba(255, 255, 0, 0.25);
+    padding: 6px 8px;
+    margin: 0;
     border-left: 3px solid #ffff00;
     animation: perkPulse 0.5s ease;
+    font-size: 0.85em;
+    border-radius: 3px;
 }
 
 @keyframes perkPulse {
@@ -200,6 +216,35 @@ button:hover {
     }
     75% {
         transform: scale(1.1) rotate(10deg);
+    }
+}
+
+/* Win Animation Overlay */
+.win-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 600;
+    text-align: center;
+}
+
+.win-animation-gif {
+    width: 500px;
+    height: 400px;
+    object-fit: contain;
+    animation: bossDanceAnimation 0.5s infinite;
+}
+
+@keyframes bossDanceAnimation {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+    75% {
+        transform: translateY(-10px) rotate(-5deg);
     }
 }
 
@@ -278,60 +323,117 @@ button:hover {
         opacity: 1;
     }
     100% {
-        transform: translateX(200px) translateY(-300px) rotate(720deg);
+        transform: translateX(250px) translateY(-400px) rotate(720deg);
         opacity: 0;
     }
 }
 
-.disappeared {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Explosion Effect */
-.explosion {
+/* Popup Styles */
+.popup {
     position: fixed;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1000;
 }
 
-.explosion-particles {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    animation: explode 1s ease-out forwards;
+.popup.hidden {
+    display: none;
 }
 
-@keyframes explode {
+.popup-content {
+    background: rgba(20, 20, 20, 0.95);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    position: relative;
+    animation: popupSlideIn 0.5s ease;
+    border: 3px solid #ff00ff;
+}
+
+@keyframes popupSlideIn {
     0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
         opacity: 1;
         transform: scale(1);
     }
-    100% {
-        opacity: 0;
-        transform: scale(3);
-    }
 }
 
-/* Boss Button Display */
-.boss-button-display {
-    width: 100%;
-    height: 100%;
-    border: 2px solid #00ff00;
-    background: rgba(0, 255, 0, 0.1);
-    padding: 0;
+.popup-content h2 {
+    font-size: 1.8em;
+    margin: 20px 0;
+    text-shadow: 0 0 15px #ffff00;
+}
+
+.popup-content button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 1em;
+    border: 2px solid #ff00ff;
+    background: rgba(255, 0, 255, 0.2);
+    color: #ff00ff;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: all 0.3s ease;
 }
 
-.boss-button-display:hover {
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+.popup-content button:hover {
+    background: rgba(255, 0, 255, 0.4);
+    text-shadow: 0 0 10px #ff00ff;
 }
 
-.boss-button-display img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
+.needle {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.needle.left {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.needle.right {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .fight-arena {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .vs-divider {
+        transform: rotate(90deg);
+    }
+
+    .bossfight-wrapper h1 {
+        font-size: 1.8em;
+    }
+
+    .fight-button {
+        width: 160px;
+        height: 200px;
+    }
+
+    .perk-display {
+        top: 70px;
+        left: 10px;
+        min-width: 180px;
+    }
 }
