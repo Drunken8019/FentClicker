@@ -4,6 +4,7 @@
   --color-text: #f0f0f0;
   --color-muted: #cfcfcf;
   --color-lg: #444444;
+  --color-dim: #888888;
 
   /* Neon accents */
   --color-neon-cyan: #00fff7;
@@ -93,6 +94,11 @@ a {
 a:hover {
   color: var(--color-neon-pink);
   text-shadow: var(--glow-pink);
+}
+
+text{
+  margin-bottom: 1em;
+  color: var(--color-muted);
 }
 
 /* Buttons */
@@ -253,6 +259,20 @@ th {
 .needle.right {
  right: -150px;
   transform: translateY(-100px) rotate(-80deg);
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  border-color: var(--color-dim);
+  color: var(--color-dim);
+  text-shadow: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.roadmap-node {
+  border: 3px solid red;
 }
 
 

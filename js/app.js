@@ -10,8 +10,8 @@ import GeorgeDroyd from "./buildings/GeorgeDroyd.js";
 GameHandler.init();
 
 
-var buildingContainer = new Container("buildingContainer");
-var boostContainer = new Container("boostContainer");
+var buildingContainer = new Container("buildingContainer", "index");
+var boostContainer = new Container("boostContainer", "index");
 
 /*var fentNeedle = new Building(50, 1.2, "Fent Needle", "Adds +1 to your clicks", "fentNeedle.avif", buildingContainer, function(){
     GameHandler.click += 1;
@@ -73,4 +73,4 @@ function(){
     GameHandler.globalFarmMult -= 2;
 });
 
-Printer.init();
+Printer.init("index");

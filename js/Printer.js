@@ -4,27 +4,31 @@ import Container from "./Container.js";
 export default class Printer
 {
 
-    static init()
+    static init(bindToSite = null)
     {
         Container.allContainers.forEach(function (container, index){
             //debugger;
-            container.components.forEach(function (comp, index) {
-                if(comp.formatless) container.content += comp.getHtml();
-                else
-                {
-                    container.row++;
-                    if(container.row == 1) container.content += '<div class="row">';
-                    container.content += `<div class="six columns" id="comp${comp.id}">` + comp.getHtml() + '</div>';
-                    if(container.row == 2) {container.content += '</div>'; container.row = 0;}
-                }
-            });
-            container.applyContent();
+            if(container.boundSite === bindToSite){
+                container.components.forEach(function (comp, index) {
+                    if(comp.formatless) container.content += comp.getHtml();
+                    else
+                    {
+                        container.row++;
+                        if(container.row == 1) container.content += '<div class="row">';
+                        container.content += `<div class="six columns" id="comp${comp.id}">` + comp.getHtml() + '</div>';
+                        if(container.row == 2) {container.content += '</div>'; container.row = 0;}
+                    }
+                });
+                container.applyContent();
+            }
         });
 
         Container.allContainers.forEach(function (container, index){
-            container.components.forEach(function (comp, index) {
-                Printer.registerListener(comp);
-            });
+            if(container.boundSite === bindToSite){
+                container.components.forEach(function (comp, index) {
+                    Printer.registerListener(comp);
+                });
+            }
         });
     }
 
