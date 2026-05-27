@@ -4,6 +4,8 @@ import Container from "./Container.js";
 import Printer from "./Printer.js";
 import Boost from "./Boost.js";
 import Bossfight from "./Bossfight.js";
+import FentNeedle from "./buildings/FentNeedle.js";
+import GeorgeDroyd from "./buildings/GeorgeDroyd.js";
 
 GameHandler.init();
 
@@ -11,9 +13,11 @@ GameHandler.init();
 var buildingContainer = new Container("buildingContainer");
 var boostContainer = new Container("boostContainer");
 
-var fentNeedle = new Building(50, 1.2, "Fent Needle", "Adds +1 to your clicks", "fentNeedle.avif", buildingContainer, function(){
+/*var fentNeedle = new Building(50, 1.2, "Fent Needle", "Adds +1 to your clicks", "fentNeedle.avif", buildingContainer, function(){
     GameHandler.click += 1;
-});
+});  ----- Old Style of creating Buildings, still works*/
+
+var fentNeedle = new FentNeedle(buildingContainer);
 
 var fentPipe = new Building(200, 1.5, "Fent Pipe", "Multiplies your clicks by x2", "fent_pipe.avif", buildingContainer, function(){
     GameHandler.clickMult += 2;
@@ -21,6 +25,7 @@ var fentPipe = new Building(200, 1.5, "Fent Pipe", "Multiplies your clicks by x2
 
 var fentReactor = new Building(5000, 1.1, "Fent Reactor", "Cooks 100 Fent/s", "fentReactor.avif", buildingContainer, function(){
     GameHandler.autoFarm += 100;
+    georgeDroyd.update();
 });
 
 var jewishFloyd = new Building(100000, 1.5, "Jorge Floydstein", "Multiplies your Fent cooking by x2", "jewish-floyd.avif", buildingContainer, function(){
@@ -35,8 +40,18 @@ var fentMixer = new Building(200000, 1.1, "Fent Mixer", "Combines your Fent with
     GameHandler.autoFarm += 400;
 })
 
-var georgeDroyd = new Building(400000, 1.6, "George Droyd", "Mechanical George Floyd, with unmatched productivity. If you own 5 or more Fent Reactors, 5 will be consumed,"
-    + " upgrading Georges Droyd Multiplier to x20. Multiplies Multiplies your Fent cooking by x5/x20", "george-droyd.avif", buildingContainer, function(){
+var georgeDroyd = new GeorgeDroyd(buildingContainer, fentReactor)
+
+/*var georgeDroyd = new Building(400000, 1.6, "George Droyd", 
+    function(){
+        let mult = "x5"
+        if(fentReactor.count >= 5) mult = "x20"
+        return `Mechanical George Floyd, with unmatched productivity. If you own 5 or more Fent Reactors, 5 will be consumed,`
+    + ` upgrading Georges Droyd Multiplier to x20. Multiplies your Fent cooking by ${mult}`
+    }, 
+    "george-droyd.avif", buildingContainer, 
+
+function(){
     if(fentReactor.count >= 5)
         {
             fentReactor.count -= 5;
@@ -47,7 +62,7 @@ var georgeDroyd = new Building(400000, 1.6, "George Droyd", "Mechanical George F
     else{
             GameHandler.autoFarmMult += 5;
         }
-})
+})*/
 
 var blmBoost = new Boost(1000, 1, "BLM Boost", "Black Lives Matter - Doubles Fent Cooking and Fent Clicks", "blm.avif", 1000 * 60 * 2, boostContainer, function(){
     GameHandler.globalClickMult += 2;
